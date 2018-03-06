@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructorDemo", "Construc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TupleDemo", "TupleDemo\TupleDemo.csproj", "{518AE57D-E69C-4DF4-999C-6FF0C2466C72}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Important Interfaces", "Important Interfaces", "{EB80B373-B2CD-4597-9A52-A8B7E680D8D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisposableDemo", "Important Interfaces\DisposableDemo\DisposableDemo.csproj", "{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,10 @@ Global
 		{518AE57D-E69C-4DF4-999C-6FF0C2466C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518AE57D-E69C-4DF4-999C-6FF0C2466C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518AE57D-E69C-4DF4-999C-6FF0C2466C72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +105,7 @@ Global
 		{2C7AD683-07A7-40F8-8829-A2EF177A5CF9} = {198D0C6E-5067-496A-A41B-2596AC854E09}
 		{D5A90EDE-6158-443B-A223-66A9F96D8BAE} = {198D0C6E-5067-496A-A41B-2596AC854E09}
 		{4F4D485D-46D0-4AC2-9C0E-CA6EA484CB0D} = {198D0C6E-5067-496A-A41B-2596AC854E09}
+		{D320BA30-8D9D-4AE3-908D-1CC6D697B7DA} = {EB80B373-B2CD-4597-9A52-A8B7E680D8D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89900C5A-936B-4DDD-AC8D-FE63B583E906}
