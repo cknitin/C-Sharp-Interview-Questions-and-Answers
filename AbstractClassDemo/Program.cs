@@ -14,7 +14,6 @@ namespace AbstractClassDemo
     // 5. Derived class can not have same name method as abstrat class
     abstract class Demo
     {
-
         public void ShowFirstName()
         {
             Console.WriteLine("I am James.");
