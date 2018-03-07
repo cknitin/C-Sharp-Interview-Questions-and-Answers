@@ -96,4 +96,13 @@ What is the difference between “as” and “is” operators in C#?
 “as” operator is used for casting object to type or class.
 “is” operator is used for checking the object with type and this will return a Boolean value.
 
+What you mean by boxing and unboxing in C#?
+Boxing – This is the process of converting from value type to reference type. For example,
+int myvar = 10;
+object myObj = myvar;
+UnBoxing – It’s completely opposite to boxing. It’s the process of converting reference type to value type. For example,
+int myvar2 = (int)myObj;
+
+Explain Partial Class in C#?
+Partial classes concept added in .Net Framework 2.0 and it allows us to split the business logic in multiple files with the same class name along with “partial” keyword.
 
