@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		OOP_Concept.txt = OOP_Concept.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SealDemo", "SealDemo\SealDemo.csproj", "{BE561ADE-EF4A-41B1-A2CE-4F165019DA49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,10 @@ Global
 		{7636260D-7015-4BFB-B342-0939607FC588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7636260D-7015-4BFB-B342-0939607FC588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7636260D-7015-4BFB-B342-0939607FC588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE561ADE-EF4A-41B1-A2CE-4F165019DA49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE561ADE-EF4A-41B1-A2CE-4F165019DA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE561ADE-EF4A-41B1-A2CE-4F165019DA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE561ADE-EF4A-41B1-A2CE-4F165019DA49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
