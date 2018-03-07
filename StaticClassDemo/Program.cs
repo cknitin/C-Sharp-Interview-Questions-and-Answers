@@ -14,7 +14,8 @@ namespace StaticClassDemo
     // 6. Non staic filed can not be access in static constructors
     // 7. Static constructor invoke once for any number of instance, it is use to initilize static member fileds, by default static constructor is public
     // and access modifiers can not be use with static constructor.
-
+    // 8. If the class is made static then all the members of the class are also made static. 
+    //If the variable is made static then it will have a single instance and the value change is updated in this instance.
     static class Demo
     {
         //1. Static class cannot declare instance members in a static class 

@@ -10,6 +10,7 @@ namespace ProtectedInternallDemoLibrary
 {
     public class ProtectedInternalDemoLibraryDemo
     {
+        // 1. “protected internal” can be accessed in the same assembly and the child classes can also access these methods.
         protected internal string Greeting { get; set; }
         public void PrintGreeting()
         {

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace RefAndOutDemo
 {
+    // 1. “out” parameter can be passed to a method and it need not be initialized 
+    // where as “ref” parameter has to be initialized before it is used.
     class Demo
     {
         public void Print(ref string firstName, out string lastName)
