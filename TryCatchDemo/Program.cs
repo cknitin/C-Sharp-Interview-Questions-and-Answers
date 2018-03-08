@@ -20,27 +20,32 @@ namespace TryCatchDemo
                         int y = 0;
                         int z = x / y;
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        throw;
+
+                        int x = 10;
+                        int y = 0;
+                        int z = x / y;
+
+                        Console.WriteLine("c Catch");
                     }
                     finally
                     {
                         Console.WriteLine("c Finally");
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine("B Catch");
                 }
                 finally
                 {
                     Console.WriteLine("B Finally");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("A Catch");
             }
             finally
             {
