@@ -54,6 +54,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayAndArrayListDemo", "Ar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArraysDemo", "JaggedArraysDemo\JaggedArraysDemo.csproj", "{5CC6C1E9-42C1-4166-8188-93A59753A6BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCatchDemo", "TryCatchDemo\TryCatchDemo.csproj", "{ED145704-EB5F-4BED-8775-3B30EC8B03AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +146,10 @@ Global
 		{5CC6C1E9-42C1-4166-8188-93A59753A6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC6C1E9-42C1-4166-8188-93A59753A6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC6C1E9-42C1-4166-8188-93A59753A6BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED145704-EB5F-4BED-8775-3B30EC8B03AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED145704-EB5F-4BED-8775-3B30EC8B03AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED145704-EB5F-4BED-8775-3B30EC8B03AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED145704-EB5F-4BED-8775-3B30EC8B03AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
