@@ -68,6 +68,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Func-Action-And-LocalFuncti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefualtDemo", "DefualtDemo\DefualtDemo.csproj", "{47FDC205-E9FD-4854-9514-DE5880F658CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{58DBC0CF-61D6-4342-95C4-0423CB1B59A6}"
+	ProjectSection(SolutionItems) = preProject
+		10 MostCommonSqlQueriesasked.txt = 10 MostCommonSqlQueriesasked.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,298 @@
+
+
+===========================================================
+--inner self join to list employee and manager
+select employees.firstname + ''+employees.lastname as EmployeeName,
+Manager.FirstName + ''+Manager.LastName as ManagerName
+from employees inner join employees as Manager
+on employees.reportsto = Manager.EmployeeId
+
+--outer self join to list all employees i.e where manager is null also
+select employees.firstname + ''+employees.lastname as EmployeeName,
+isnull(Manager.FirstName + ''+Manager.LastName,'No manager found') as ManagerName
+from employees left outer join employees as Manager
+on employees.reportsto = Manager.EmployeeId
+--===========================================================
+		Getting nth highest salary
+CREATE TABLE Employee_Test
+(
+Emp_ID INT Identity,
+Emp_name Varchar(100),
+Emp_Sal Decimal (10,2)
+)
+
+INSERT INTO Employee_Test VALUES ('Anees',1000);
+INSERT INTO Employee_Test VALUES ('Rick',1200);
+INSERT INTO Employee_Test VALUES ('John',1100);
+INSERT INTO Employee_Test VALUES ('Stephen',1300);
+INSERT INTO Employee_Test VALUES ('Maria',1400);
+
+SELECT * FROM Employee_Test
+--==========================
+--Solution 1.
+============================
+SELECT MIN(Emp_Sal) 
+FROM Employee_Test
+WHERE Emp_Sal IN(SELECT DISTINCT TOP 4 Emp_Sal FROM Employee_Test ORDER BY Emp_Sal DESC)
+--=========================================
+--Solution 2. Without TOP; Dense_Rank function to rescue
+--=========================================
+SELECT DISTINCT Emp_Sal
+FROM (SELECT Emp_Sal, DENSE_RANK() OVER(ORDER BY Emp_Sal desc) AS Highest FROM Employee_Test)AS High Where Highest = 5
+
+
+--Query 2. Swapping the Gender
+
+CREATE TABLE Employee (id int identity,[name] varchar(25), gender varchar(25))
+INSERT INTO Employee ([name],[gender])values('amada','male')
+SELECT * FROM Employee
+
+UPDATE Employee 
+SET gender = CASE
+				WHEN
+					gender = 'male' THEN 'female'
+					Else
+					'male'
+			End
+Delete duplicate rows on table with/without primary key in Sql Server 2005
+Problem
+every once in awhile a table gets created without a primary key and duplicate records get entered.  The problem gets even worse when you have two identical rows in the table and there is no way to distinguish between the two rows.  So how do you delete the duplicate record?
+Solution
+One option that SQL Server gives you is the ability to set ROWCOUNT which limits the numbers of records affected by a command.  The default value is 0 which means all records, but this value can be set prior to running a command.
+create table testduplicate
+(
+ EmpId int,
+ EmpName varchar(10),
+ EmpSSN varchar(11)
+);
+
+insert into testduplicate values(1, 'Jack', '555-55-5555');
+insert into testduplicate values (2, 'Joe', '555-56-5555');
+insert into testduplicate values (3, 'Fred', '555-57-5555');
+insert into testduplicate values (4, 'Mike', '555-58-5555');
+insert into testduplicate values (5, 'Cathy', '555-59-5555');
+insert into testduplicate values (6, 'Lisa', '555-70-5555');
+insert into testduplicate values (1, 'Jack', '555-55-5555');
+insert into testduplicate values (4, 'Mike', '555-58-5555');
+insert into testduplicate values (5, 'Cathy', '555-59-5555');
+insert into testduplicate values (6 ,'Lisa', '555-70-5555');
+insert into testduplicate values (5, 'Cathy', '555-59-5555');
+insert into testduplicate values (6, 'Lisa', '555-70-5555');
+set rowcount 1
+delete from testduplicate  where empid in (SELECT empid FROM testduplicate GROUP BY empid,empname,empssn HAVING COUNT(*) > 1)
+	while (@@rowcount > 0)
+	begin
+	    delete from testduplicate  where empid in ( SELECT empid FROM testduplicate GROUP BY empid,empname,empssn HAVING COUNT(*) > 1)
+	end 
+set rowcount 0
+What is #temp table and @table variable in SQL Server?
+ 1. Its kind of normal table but it is created and populated on disk, in the system database tempdb — with a session-specific identifier packed onto the name, to differentiate between similarly-named #temp tables created from other sessions. 
+
+The data in this #temp table (in fact, the table itself) is visible only to the current scope. Generally, the table gets cleared up automatically when the current procedure goes out of scope, however, we should manually clean up the data when we are done with it. 
+
+Syntax: 
+-- create temporary table
+
+CREATE TABLE #myTempTable (AutoID int,MyName char(50) )
+
+-- populate temporary table
+
+INSERT INTO #myTempTable (AutoID, MyName )
+
+SELECT 	AutoID, MyName FROM 	myOriginalTable WHERE 	AutoID <= 50000
+
+-- Drop temporary table
+
+drop table #myTempTable 
+
+@table variable 
+table variable is similar to temporary table It is not physically stored in the hard disk, it is stored in the memory. 
+
+Syntax: DECLARE @myTable TABLE (AutoID int,myName char(50) )
+INSERT INTO @myTable (AutoID, myName )
+
+SELECT 	YakID, YakName FROM 	myTable  WHERE 	AutoID <= 50
+
+We don't need to drop the @temp variable as this is created inside the memory and automatically disposed when scope finishes.
+2. Table variables are Transaction neutral. They are variables and thus aren't bound to a transaction.
+Temp tables behave same as normal tables and are bound by transactions.
+--A simple example shows this difference quite nicely:
+
+BEGIN TRAN
+declare @var table (id int, data varchar(20) )
+create table #temp (id int, data varchar(20) )
+
+insert into @var
+select 1, 'data 1' union all
+select 2, 'data 2' union all
+select 3, 'data 3'
+
+insert into #temp
+select 1, 'data 1' union all
+select 2, 'data 2' union all
+select 3, 'data 3'
+
+select * from #temp
+select * from @var
+ROLLBACK
+select * from @var
+if object_id('tempdb..#temp') is null
+    select '#temp does not exist outside the transaction' 
+
+We see that the table variable still exists and has all it's data unlike the temporary table that doesn't exists when the transaction rollbacked.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How we can get the List of System Tables in DataBase?
+select * from sysobjects where Type='s'
+How we can get the list of user tables?
+select * from sysobjects where Type='u'
+How We can Get List of Store Procedures?
+select * from sysobjects where Type='p'
+How We Can Get List of Scalar Functions?
+select * from sysobjects where Type='fn'
+Query to Get List of Table Valued Functions?
+select * from sysobjects where Type='tf'
+How we can Get List of Triggers?
+select * from sysobjects where Type='tr'
+Query to display List of All Databases in SQL Server 2005/2008?
+ 
+SELECT * FROM Sys.Databases 
+Or
+sp_databases
+What is the use of Set NOCOUNT ON;?By Default When we execute any command it return us the number of record affected. if we don't want to return the number of records affected then we can use Set NOCOUNT ON;
+What are magic tables?
+Sometimes we need to know about the data which is being inserted/deleted by triggers in database. With the insertion and deletion of data, tables named “INSERTED” and “DELETED” gets created in SQL Server which contains modified/deleted data. 
+Here, “INSERTED” and “DELETED” tables are called magic tables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the difference between a HAVING CLAUSE and a WHERE CLAUSE ?
+HAVING specifies a search condition for a group or an aggregate function used in SELECT statement.
+HAVING can be used only with the SELECT statement. HAVING is typically used in a GROUP BY clause. When GROUP BY is not used, HAVING behaves like a WHERE clause.
+A HAVING clause is like a WHERE clause, but applies only to groups as a whole, whereas the WHERE clause applies to individual rows. A query can contain both a WHERE clause and a HAVING clause. The WHERE clause is applied first to the individual rows in the tables . Only the rows that meet the conditions in the WHERE clause are grouped. The HAVING clause is then applied to the rows in the result set. Only the groups that meet the HAVING conditions appear in the query output. This is very imp point that You can apply a HAVING clause:
+1. only to columns that also appear in the GROUP BY clause Or 2. in an aggregate function.The above line proves the significance of the definition of having clause given above.
+Note that all the columns that appear in select statement must also appear in group by clause also
+
+
+
+
+
+
+
+
+
+
+
+What is the Product code (Internal Code) for "SQL Server 2005", "SQL Server 2008" and "SQL Server 2008 R2" ?
+"Yukon" for SQL Server 2005 
+"Katmai/Akadia " for SQL Server 2008 
+"Kilimanjaro" for SQL Server 2008 R2, “Denali” for SQL Server  2011
+
+
+
+
+
+Difference between VARCHAR and NVARCHAR
+VARCHAR: 
+
+1.Storage: 8 bit 
+2.Abbreviation: Variable -Length Character String 
+3.Accepts only English character 
+4.Doesn't supports other language symbols 
+5.Runs faster than NVARCHAR as consumes less memory 
+
+NVARCHAR: 
+1.Storage: 16 bit 
+2.Abbreviation: uNicode 
+3.Accepts both English character and non-English symbols 
+what is Schemabinding View.
+Schemabinding View Restirct you to made any change in tables you used in your View. 
+Example: 
+
+Suppose I have an table Employee(EmpID,EmpName, DOJ,Managerid,DepartID) 
+
+Now am Creating a view 
+
+Create View EmployeeDetails 
+with Schemabinding 
+as 
+Select EmPid, EmpName,DOj,ManagerId,DepartID from Employee 
+
+
+
+after it just try to execute delete table and alter table and delete column of employee table. 
+Sql server will not allow to change table schema. Because you are having Schema dependency.First you need to delete View then only database will allow to modify table. 
+If you are using Normal View. Sytem will Allow you to delete or modify table but when you run your View next time it will display error.
+How many Foreign key can i have in my MS sql table ?
+A Maximum of 253 Foreign Keys we can have in for a single table.
+Can you set firing order in triggers and in instead of triggers?
+Note that although we can have more than one after trigger in the insert/update/or delete event i.e I can have two trigger on insert in same table but we can have only one Instead of trigger per event.
+So we can set the trigger order for after trigger but not for instead of trigger.
+exec sp_settriggerorder @triggername = , /* SQL Server 2000 and 2005 */
+@order = [FIRST|LAST|NONE], /* SQL Server 2000 and 2005 */
+@stmttype = [INSERT|UPDATE|DELETE|], /* SQL Server 2000 and 2005 */
+@namespace = [DATABASE|SERVER|NULL] /* SQL Server 2005 only */example : 
+USE AdventureWorks2008R2;
+GO
+sp_settriggerorder @triggername= 'Sales.uSalesOrderHeader', @order='First', @stmttype = 'UPDATE';
+
+For instead of trigger we cannot be set the order.
+What are CRUD operations in database?
+The term CRUD stands for Create, Read, Update, and Delete. Each letter in the acronym corresponds to each database operations. C-Create :- corresponds to INSERT statement in sql R-Read :- corresponds to SELECT statement in sql U-Update:- corresponds to UPDATE statement in sql D-Delete :- corresponds to DELETE statement in sql 
+Difference between Primary Key and unique key ?
+Primary Key Restrict duplicate values and null values each table can have only one primary key,default clustered index is the primary key. 
+unique key restrict duplicate values and allow only one null value.
+Are the two statements same :- select ProductName from Products; select All ProductName from Products;
+yes
