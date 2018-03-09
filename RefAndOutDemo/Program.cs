@@ -10,27 +10,56 @@ namespace RefAndOutDemo
     // where as “ref” parameter has to be initialized before it is used.
     class Demo
     {
-        public void Print(ref string firstName, out string lastName)
+        public int refSum(ref int a, ref int b)
         {
-            firstName = "Steve";
-            lastName = "Smith";
+            return a = a + b; 
             
+        }
+
+        public int outSum(out int a, out int b)
+        {
+            a = 11;
+            b = 22;
+
+            return a = a + b;
+
+        }
+
+        public int inPrint(in int a, in int b)
+        {
+            // Not allowed with in
+            
+            //return a = a + b;
+            return a + b;
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            string firstName = "Tony";
-            string lastName = "Stark";
+            int x = 10;
+            int y = 20;
 
             Demo d = new Demo();
 
-            Console.WriteLine($"Before -  {firstName} {lastName}");
+            Console.WriteLine($"Before -  {x} {y}");
 
-            d.Print(ref firstName,out lastName);
+            int z = d.refSum(ref x,ref y);
 
-            Console.WriteLine($"Afer -  {firstName} {lastName}");
+
+            Console.WriteLine($"ref after -  {x} {y} {z}");
+
+
+            int zz = d.outSum(out int a, out int b);
+            Console.WriteLine($"out after -  {a} {b} {zz}");
+
+
+            int p = 10;
+            int q = 20;
+
+            int r = d.outSum(out p, out q);
+            Console.WriteLine($"in after -  {p} {q} {r}");
+
 
             Console.ReadLine();
         }

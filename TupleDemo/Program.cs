@@ -25,6 +25,9 @@ namespace TupleDemo
     {
         static void Main(string[] args)
         {
+
+
+
             TupleDemoClass obj = new TupleDemoClass();
             var tp = obj.GetMultiTypeValues(10,"Ten");
 

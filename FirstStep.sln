@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternallDemoLibrary", "Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectedInternallDemoLibrary", "ProtectedInternallDemoLibrary\ProtectedInternallDemoLibrary.csproj", "{A2977258-A1AA-4FED-A326-67CBB729A764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefAndOutDemo", "RefAndOutDemo\RefAndOutDemo.csproj", "{7636260D-7015-4BFB-B342-0939607FC588}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefAndOutAndInDemo", "RefAndOutDemo\RefAndOutAndInDemo.csproj", "{7636260D-7015-4BFB-B342-0939607FC588}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3F73E04-C934-47BA-A10A-33A76ADA769D}"
 	ProjectSection(SolutionItems) = preProject
