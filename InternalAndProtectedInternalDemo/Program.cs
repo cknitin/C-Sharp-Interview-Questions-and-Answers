@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace InternalAndProtectedInternalDemo
 {
-
+    // 1. Internal member can be access on with in assembely
+    // 2. “protected internal” can be accessed in the same assembly and the child classes can also access these methods.
     class Demo : ProtectedInternalDemoLibraryDemo
     {
         public Demo()
         {
+            // 2. “protected internal” can be accessed in the same assembly and the child classes can also access these methods.
             Greeting = "Protected Internal Demo Library Demo";
             PrintGreeting();
         }

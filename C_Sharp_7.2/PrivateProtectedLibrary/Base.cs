@@ -28,7 +28,7 @@ namespace PrivateProtectedLibrary
         public void M()
         {
             Base b = new Base();
-            // Base.M() is inaccessibledue to protection level
+            //Base.M() is inaccessibledue to protection level
             //b.M();
 
             D1 d = new D1();
