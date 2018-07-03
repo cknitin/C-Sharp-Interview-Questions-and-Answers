@@ -1,7 +1,7 @@
-Encapsulation
-Encapsulation is concept of binding or grouping the data member and member functions in to a single unit.
+# Encapsulation 
+It is concept of binding or grouping the data member and member functions in to a single unit.
 
-Data Hiding
+# Data Hiding
 Data and encapsulation is the most striking feature of a class. The data is not accessible to the outside world, 
 and only those functions which are wrapped in the class can access it. 
 These functions provide the interface between the object’s data and the program. 
