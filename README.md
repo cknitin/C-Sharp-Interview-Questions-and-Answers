@@ -22,7 +22,7 @@ Dispose - This method uses interface – “IDisposable” interface and it will
 Finalize - This method is called internally unlike Dispose method which is called explicitly. It is called by garbage collector and can’t be called from the code.
 
 # What is the difference between “finalize” and “finally” methods in C#?
-inalize – This method is used for garbage collection. So before destroying an object this method is called as part of clean up activity.
+Finalize – This method is used for garbage collection. So before destroying an object this method is called as part of clean up activity.
 
 Finally – This method is used for executing the code irrespective of exception occurred or not.
 
