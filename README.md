@@ -16,6 +16,18 @@ It's is another important OOP concept. Polymorphism, a Greek term, means the abi
 An operation may exhibit different behavior is different instances. The behavior depends upon the types of data used in the operation.
 For example, consider the operation of addition. For two numbers, the operation will generate a sum. If the operands are strings, then the operation would produce a third string by concatenation. The process of making an operator to exhibit different behaviors in different instances is known as operator overloading. 
 
+Type of Polymorphism
+
+1. COMPILE TIME POLYMORPHISM (EARLY BINDING OR OVERLOADING OR STATIC BINDING)
+
+Compile time polymorphism means we will declare a method with same name and different parameter/signature because of this we will perform different tasks with same method name in the same class is called compile time polymorphism.
+
+2. RUNTIME POLYMORPHISM (LATE BINDING OR OVERRIDING OR DYNAMIC BINDING)
+
+Runtime polymorphism means we will declare a method with same name and same parameter/signature in the different class is called runtime polymorphism.
+
+In the runtime polymorphism we can override a method in base class by creating a similar function in derived class this can be achieved by using inheritance principle and using virtual & override keywords. We can declare methods with the virtual keyword then you can override those methods using virtual keyword in the derived class.
+
 # What is the difference between “dispose” and “finalize” variables in C#?
 Dispose - This method uses interface – “IDisposable” interface and it will free up both managed and unmanaged codes like – database connection, files etc.
 
