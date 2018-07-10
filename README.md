@@ -432,25 +432,25 @@ A Predicate returns true or false
 This C# type stores a method that receives 1 parameter and returns 1 value of true or false.
 And it is often used with lambda expression syntax.
 
-   //
-   // This Predicate instance returns true if the argument is one.
-   //
-   Predicate<int> isOne =
-       x => x == 1;
-   //
-   // This Predicate returns true if the argument is greater than 4.
-   //
-   Predicate<int> isGreaterEqualFive =
-       (int x) => x >= 5;
+      //
+      // This Predicate instance returns true if the argument is one.
+      //
+      Predicate<int> isOne =
+          x => x == 1;
+      //
+      // This Predicate returns true if the argument is greater than 4.
+      //
+      Predicate<int> isGreaterEqualFive =
+          (int x) => x >= 5;
 
 
-   //
-   // Test the Predicate instances with various parameters.
-   //
-   Console.WriteLine(isOne.Invoke(1));
-   Console.WriteLine(isOne.Invoke(2));
-   Console.WriteLine(isGreaterEqualFive.Invoke(3));
-   Console.WriteLine(isGreaterEqualFive.Invoke(10));
+      //
+      // Test the Predicate instances with various parameters.
+      //
+      Console.WriteLine(isOne.Invoke(1));
+      Console.WriteLine(isOne.Invoke(2));
+      Console.WriteLine(isGreaterEqualFive.Invoke(3));
+      Console.WriteLine(isGreaterEqualFive.Invoke(10));
 
 
 
@@ -461,14 +461,35 @@ The Local function can be defined in the body of any method and property’s get
 All the arguments and the local variables in the outer function are in scope of a local function.
 These local functions can use ref and out parameters.
 
-            // Local Function
-            int num = 10;
-            long GetFactorial(int number)
-            {
-                return number == 0 ? 1 : number * GetFactorial(number - 1);
-            }
-            long fact = GetFactorial(num);
-            Console.WriteLine($"{num} factorial is {fact}");
+     // Local Function
+     int num = 10;
+     long GetFactorial(int number)
+     {
+         return number == 0 ? 1 : number * GetFactorial(number - 1);
+     }
+     long fact = GetFactorial(num);
+     Console.WriteLine($"{num} factorial is {fact}");
+     
+     
+# Abstract Class
+
+1. We can not have abstratc method in non abstratc class
+2. A abstract class can have both abstratc and non- abstract methds
+3. Can not create the instance of abstratc class
+4. Its mandatroy to override the abstratc method in derived class
+5. Derived class can not have same name method as abstrat class
+
+
+         abstract class Demo
+         {
+             public void ShowFirstName()
+             {
+                 Console.WriteLine("I am James.");
+             }
+
+            abstract public void ShowLastName();
+         }
+
 
     
 
