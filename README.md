@@ -228,3 +228,39 @@ int myvar2 = (int)myObj;
 # Explain Partial Class in C#?
 Partial classes concept added in .Net Framework 2.0 and it allows us to split the business logic in multiple files with the same class name
 
+# Shallow Copy
+
+ class Demo
+ {
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public Demo Copy()
+    {
+        return (Demo)this.MemberwiseClone();
+    }
+    public void Print(string objectName)
+    {
+        Console.WriteLine($"Object Name- {objectName} \nFirst Name- {FirstName} \nLast Name- {LastName}");
+    }
+ }
+
+ class Program
+ {
+    static void Main(string[] args)
+    {
+        Demo d1 = new Demo();
+        d1.FirstName = "Peter";
+        d1.LastName = "Parker";
+        d1.Print("d1");
+
+        Demo d2 = new Demo();
+        d2 = d1.Copy();
+        d2.FirstName = "Rachel";
+        d2.Print("d2");
+        d1.Print("d1");
+
+        Console.ReadLine();
+    }
+ }
+
+
