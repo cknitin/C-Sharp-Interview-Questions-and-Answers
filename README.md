@@ -22,8 +22,10 @@ Type of Polymorphism
 
 Compile time polymorphism means we will declare a method with same name and different parameter/signature because of this we will perform different tasks with same method name in the same class is called compile time polymorphism.
 
+
 class Sample
 {
+    
     public int Sum(int a, int b)
     {
         return a + b;
@@ -34,14 +36,15 @@ class Sample
         return a + b +c;
     }
 }
+
 class Program
 {
+
     static void Main(string[] args)
     {
         Sample sample = new Sample();
         sample.Sum(10, 20);
         sample.Sum(10, 20, 30);
-
     }
 }
 
