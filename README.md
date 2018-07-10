@@ -489,6 +489,14 @@ These local functions can use ref and out parameters.
 
             abstract public void ShowLastName();
          }
+         
+         class Demo1:Demo
+         {
+             public override void ShowLastName()
+             {
+                 Console.WriteLine("I am Anderson.");
+             }
+         }
 
 
     
