@@ -54,6 +54,69 @@ Runtime polymorphism means we will declare a method with same name and same para
 
 In the runtime polymorphism we can override a method in base class by creating a similar function in derived class this can be achieved by using inheritance principle and using virtual & override keywords. We can declare methods with the virtual keyword then you can override those methods using virtual keyword in the derived class.
 
+    class Parent
+    {
+        public void Display()
+        {
+            Console.WriteLine("This is a parent method.");
+        }
+    }
+
+    class Child : Parent
+    {
+        public void Display()
+        {
+            Console.WriteLine("This is a parent method.");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Parent p = new Child();
+
+            p.Display();
+
+            Console.ReadKey();
+        }
+    }
+
+Output # 
+This is a parent method.
+
+To Fix that use the virtual and override.
+
+    class Parent
+    {
+        public virtual void Display()
+        {
+            Console.WriteLine("This is a parent method.");
+        }
+    }
+
+    class Child : Parent
+    {
+        public override void Display()
+        {
+            Console.WriteLine("This is a child method.");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Parent p = new Child();
+
+            p.Display();
+
+            Console.ReadKey();
+        }
+    }
+
+
+
 # What is the difference between “dispose” and “finalize” variables in C#?
 Dispose - This method uses interface – “IDisposable” interface and it will free up both managed and unmanaged codes like – database connection, files etc.
 
