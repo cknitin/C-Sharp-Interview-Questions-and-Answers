@@ -14,7 +14,13 @@ It's the process by which objects of one class acquired the properties of object
 # Polymorphism
 It's is another important OOP concept. Polymorphism, a Greek term, means the ability to take more than one form. 
 An operation may exhibit different behavior is different instances. The behavior depends upon the types of data used in the operation.
-For example, consider the operation of addition. For two numbers, the operation will generate a sum. If the operands are strings, then the operation would produce a third string by concatenation. The process of making an operator to exhibit different behaviors in different instances is known as operator overloading. 
+For example, consider the operation of addition. For two numbers, the operation will generate a sum. If the operands are strings, then the operation would produce a third string by concatenation. The process of making an operator to exhibit different behaviors in different instances is known as operator overloading.
+
+In C# how can we achive "Polymorphism"
+
+Polymorphism is a feature of object-oriented programming. It allows you to invoke methods of a derived class through base class reference during runtime. In polymorphism, we will declare methods with same name and different parameters in same class or methods with same name and same parameters in different classes.
+
+Polymorphism has the ability to provide the different implementation of methods that are implemented with the same name.
 
 Type of Polymorphism
 
