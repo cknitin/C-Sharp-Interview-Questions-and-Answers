@@ -498,6 +498,51 @@ These local functions can use ref and out parameters.
              }
          }
 
+# Optional vs Named Parameters
 
+Optional Parameters
+An optional parameter has a default value. A method with an optional parameter can be called with only some of its parameters specified. Using this feature in new versions of the C# language, we add default values for formal parameters.
+
+
+
+
+     using System;
+
+     class Program
+     {
+         static void Main()
+         {
+             // Omit the optional parameters.
+             Method();
+
+             // Omit second optional parameter.
+             Method(4);
+
+             // You can't omit the first but keep the second.
+             // Method("Dot");
+
+             // Classic calling syntax.
+             Method(4, "Dot");
+
+             // Specify one named parameter.
+             Method(name: "Sam");
+
+             // Specify both named parameters.
+             Method(value: 5, name: "Allen");
+         }
+
+         static void Method(int value = 1, string name = "Perl")
+         {
+             Console.WriteLine("value = {0}, name = {1}", value, name);
+         }
+     }
+
+     Output
+
+     value = 1, name = Perl
+     value = 4, name = Perl
+     value = 4, name = Dot
+     value = 1, name = Sam
+     value = 5, name = Allen
     
 
