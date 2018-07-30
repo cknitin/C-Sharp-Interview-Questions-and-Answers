@@ -192,8 +192,8 @@ To Sort an array, use OrderByDescending method and then “Reverse()” to sort 
 # Find the index of item in array
 
     int[] x =  {3,1,6,7,3,2,5,7};
-    int index = Array.IndexOf(x, 5); // anser : 6
-    int index = Array.IndexOf(x, 17); // anser : -1
+    int index = Array.IndexOf(x, 5); // answer : 6
+    int index = Array.IndexOf(x, 17); // anwser : -1
     Console.WriteLine(index);
 
 # Explain object pool in C#?
