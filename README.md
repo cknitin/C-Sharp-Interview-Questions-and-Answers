@@ -175,6 +175,21 @@ String is immutable and it means we cannot modify the string object and will alw
 # How we can sort the array elements in descending order in C#?
 “Sort()” method is used with “Reverse()” to sort the array in descending order.
 
+   int[] x =  {3,1,6,7,3,2,5,7};
+   try
+   { 
+        x = x.OrderByDescending(r => r).Reverse().ToArray();
+        foreach (var item in x)
+        {
+            Console.WriteLine(item);
+        }
+    }
+    catch (Exception ex)
+    {
+        throw;
+   }
+
+
 # Explain object pool in C#?
 Object pool is used to track the objects which are being used in the code. So object pool reduces the object creation overhead.
 
