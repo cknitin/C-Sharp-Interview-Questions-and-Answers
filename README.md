@@ -478,7 +478,7 @@ These local functions can use ref and out parameters.
 3. Can not create the instance of abstratc class
 4. Its mandatroy to override the abstratc method in derived class
 5. Derived class can not have same name method as abstrat class
-
+6. Abstract class can have the construtor.
 
          abstract class Demo
          {
