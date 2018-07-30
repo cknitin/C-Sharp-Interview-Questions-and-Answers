@@ -173,21 +173,21 @@ String is immutable and it means we cannot modify the string object and will alw
 “Clone()” method is used to create a new array to contain all the elements which are in the original array.
 
 # How we can sort the array elements in descending order in C#?
-“Sort()” method is used with “Reverse()” to sort the array in descending order.
+To Sort an array, use OrderByDescending method and then “Reverse()” to sort the array in descending order.
 
-   int[] x =  {3,1,6,7,3,2,5,7};
-   try
-   { 
-        x = x.OrderByDescending(r => r).Reverse().ToArray();
-        foreach (var item in x)
-        {
-            Console.WriteLine(item);
-        }
+    int[] x =  {3,1,6,7,3,2,5,7};
+    try
+    { 
+         x = x.OrderByDescending(r => r).Reverse().ToArray();
+         foreach (var item in x)
+         {
+             Console.WriteLine(item);
+         }
+     }
+     catch (Exception ex)
+     {
+         throw;
     }
-    catch (Exception ex)
-    {
-        throw;
-   }
 
 
 # Explain object pool in C#?
