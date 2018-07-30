@@ -658,5 +658,46 @@ An optional parameter has a default value. A method with an optional parameter c
              }
       }
      
+========================================================================
+
+     public class Base
+      {
+          public virtual void Show()
+          {
+              Console.WriteLine("Show base.");
+          }
+      }
+
+      public class Base1:Base
+      {
+          public new virtual void Show()
+          {
+              Console.WriteLine("Show base 1.");
+          }
+      }
+
+      public class Drive : Base1
+      {
+          public override void Show()
+          {
+              Console.WriteLine("Show drive.");
+          }
+      }
+      
+      class Program
+      {
+          static void Main(string[] args)
+          {
+
+              Base b = new Base1(); 
+              Base1 b1 = new Drive();
+
+
+              b.Show();     // Show Base
+              b1.Show();    // Show Drive
+              Console.ReadLine();
+          }
+      }
+
 
 
