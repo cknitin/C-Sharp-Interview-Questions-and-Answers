@@ -545,4 +545,9 @@ An optional parameter has a default value. A method with an optional parameter c
      value = 1, name = Sam
      value = 5, name = Allen
     
+# Private Construtor
+
+1. You can not create the object of that class which has "Private Construtor".
+2. You can not inherit that class with the derive class which has "Private Construtor".  
+
 
