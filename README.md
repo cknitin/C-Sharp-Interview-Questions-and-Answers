@@ -189,6 +189,12 @@ To Sort an array, use OrderByDescending method and then “Reverse()” to sort 
          throw;
     }
 
+# Find the index of item in array
+
+    int[] x =  {3,1,6,7,3,2,5,7};
+    int index = Array.IndexOf(x, 5); // anser : 6
+    int index = Array.IndexOf(x, 17); // anser : -1
+    Console.WriteLine(index);
 
 # Explain object pool in C#?
 Object pool is used to track the objects which are being used in the code. So object pool reduces the object creation overhead.
