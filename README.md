@@ -571,4 +571,50 @@ An optional parameter has a default value. A method with an optional parameter c
 1. You can not create the object of that class which has "Private Construtor".
 2. You can not inherit that class with the derive class which has "Private Construtor".  
 
+# Virtual
+
+     namespace TestDemo
+     {
+
+         public class Base
+         {
+             public virtual void Show()
+             {
+                 Console.WriteLine("Show base.");
+             }
+         }
+
+         public class Base1:Base
+         {
+             public override void Show()
+             {
+                 Console.WriteLine("Show base 1.");
+             }
+         }
+
+         public class Drive : Base1
+         {
+             public override void Show()
+             {
+                 Console.WriteLine("Show drive.");
+             }
+         }
+
+
+         class Program
+         {
+             static void Main(string[] args)
+             {
+
+                 Base b = new Base1();
+                 Base1 b1 = new Drive();
+
+
+                 b.Show();  // Show Base 1
+                 b1.Show(); // Show Drive
+                 Console.ReadLine();
+             }
+         }
+     }
+
 
