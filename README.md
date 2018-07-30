@@ -575,7 +575,7 @@ An optional parameter has a default value. A method with an optional parameter c
 
      namespace TestDemo
      {
-
+  
          public class Base
          {
              public virtual void Show()
@@ -616,5 +616,47 @@ An optional parameter has a default value. A method with an optional parameter c
              }
          }
      }
+     
+     <br/>
+     
+      public class Base
+      {
+          public virtual void Show()
+          {
+              Console.WriteLine("Show base.");
+          }
+      }
+
+      public class Base1:Base
+      {
+          public new void Show()
+          {
+              Console.WriteLine("Show base 1.");
+          }
+      }
+
+      public class Drive : Base1
+      {
+          public new void Show()
+          {
+              Console.WriteLine("Show drive.");
+          }
+      }
+      
+      class Program
+      {
+             static void Main(string[] args)
+             {
+
+                 Base b = new Base1();
+                 Base1 b1 = new Drive();
+
+
+                 b.Show();  // Show Base 1
+                 b1.Show(); // Show Base
+                 Console.ReadLine();
+             }
+      }
+     
 
 
