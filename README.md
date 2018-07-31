@@ -285,8 +285,36 @@ Other use of partial
  - partial can also be use with generics
  - Abstract class also be partial and all the parital classes will be abstract.
  
-# Enum & Interface
- both can be public only.
+# Enum 
+
+     namespace TestDemo
+     {
+         class Test
+         {
+             public enum x
+             {
+                 First,
+                 Second,
+                 Third = 100,
+                 Fourth
+             };
+
+         }
+
+         class Program
+         {
+             static void Main(string[] args)
+             {
+                 Test t = new Test();
+                 Console.WriteLine(t.x.Fourth); //  'x': cannot reference a type through an expression; try 'Test.x'     instead
+                 Console.WriteLine(Test.x.Fourth);
+                 Console.ReadLine();
+             }
+         }
+     }
+
+
+
 
 # Struct
  1. It can nnot be inherit
