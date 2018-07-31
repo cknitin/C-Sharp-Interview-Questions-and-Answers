@@ -163,6 +163,28 @@ To Fix that use the virtual and override.
 Error
 error CS0050: Inconsistent accessibility: return type 'Test.Test1' is less accessible than method 'Test.TestShow()'     
 
+# Class vs Struct
+
+## Struct
+Value Type i.e. whenever a variable is created, it holds the value.
+Copying a Struct variable, copies the value.
+A new variable is created in Stack memory.
+Cannot be inherited.
+Cannot be of Abstract type.
+Cannot contain Private parameterless constructors.
+Doesn’t support Destructor.
+ 
+## Class
+Reference Type i.e. whenever a variable is created, it holds the reference (address) while the value is stored some location.
+Copying a Class variable, copies the reference while the value remains on same location.
+A new variable is created in Heap memory.
+Can be inherited.
+Can be of Abstract type.
+Can contain Private parameterless constructors.
+Supports Destructor.
+
+
+
 # Garbage Collection
 When we are developing any application in dot net memory is the most important concern.
 The key purpose of garbage collection is automatic memory management.
@@ -619,6 +641,7 @@ These local functions can use ref and out parameters.
      
      
 # Abstract Class
+It's a partially implemented class
 
 1. We can not have abstratc method in non abstratc class
 2. A abstract class can have both abstratc and non- abstract methds
@@ -646,6 +669,94 @@ These local functions can use ref and out parameters.
                  Console.WriteLine("I am Anderson.");
              }
          }
+
+# Interface
+Interface is a contract which is going to implement fully with their derived class.
+Can contain only declaration of Members and not definition.
+Can not create object  
+Members are defined without using the override keyword.
+Cannot contain Access modifiers i.e. Members cannot be public, private, etc.
+
+#### The advantages of an abstract class are:
+
+Ability to specify default implementations of methods with definition
+It can be use where base and derive class have similar functionality.
+
+# What is a Sealed class in C#?
+A Sealed class is a class which cannot be inherited. 
+A sealed class can be public as well as private.
+We can create the object of seal class
+
+public sealed class A
+{
+   public void Fun()
+   {
+   }
+}
+//Compiler Error: 'B': cannot derive from sealed type 'A'
+public class B : A
+{
+   public static void Fun()
+   {
+
+   }
+}
+
+We can create object of seal class.
+
+A a = new A();
+C.Fun();
+
+#### We can also have the Seal methods
+
+ class Demo2
+ {
+     public virtual void Greeting1()
+     {
+         Console.WriteLine("Greeting1 from Demo2.");
+     }
+
+     public virtual void Greeting2()
+     {
+         Console.WriteLine("Greeting2 from Demo2.");
+     }
+ }
+
+ class Demo3:Demo2
+ {
+     public override void Greeting1()
+     {
+         Console.WriteLine("Greeting1 from Demo3.");
+     }
+
+     // Sealed also can be used with method to avoid override.
+     sealed public override void Greeting2()
+     {
+         Console.WriteLine("Greeting1 from Demo3.");
+     }
+ }
+
+ class Demo4 : Demo3
+ {
+     // Sealed also can be used with method to avoid override.
+     // In this class you can not override the Greeting2() method due to sealed 
+     public override void Greeting1()
+     {
+         Console.WriteLine("Greeting1 from Demo4.");
+     }
+}
+
+# What is an Internal class in C#?
+An Internal class is a class which cannot be used outside its Assembly. The internal keyword is used to mark a particular class Internal i.e. it restrict its access outside the Assembly.
+•      An Assembly could be a Project, a DLL or an EXE.
+•      Inside the Assembly, the internal class is like public class.
+•      An internal class can be inherited within the Assembly.
+
+# Protected Internal
+“protected internal” can be accessed in the same assembly and the child classes can also access these methods.
+
+
+
 
 # Optional vs Named Parameters
 
@@ -829,5 +940,120 @@ Virtual method can not be private
           }
       }
 
+# Static class
+
+1. Static class cannot have non static members.
+2. Access modifiers are not allowed on static constructors
+3. Static class can not have instance constructor
+4. Static class can not be inherit
+5. Can not create the object of static class
+6. Static constructor invoke once for any number of instance, it is use to initialize static member fields, by default static      constructor is public and access modifiers can not be use with static constructor.
+8. If the class is made static then all the members of the class are also made static. 
+9. All members in static class must be statics If the variable is made static then it will have a single instance and the value change is updated in this instance
+
+Non static Class With static members
+It can have both static and non static members.
+It can have both static and non static constructor. 
+Non static filed can not be access in static constructors.
+If a class have both static and non static constructor then static constructor will call first.
+
+
+# SQL And ADO.net
+
+# Passing DataTable in SP a parameters
+
+## Create a Table
+
+CREATE TABLE [dbo].[Person](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Gender] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Person] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+## Create Table Type
+
+CREATE TYPE dbo.PersonTableType AS TABLE
+    ( ID int, Name nvarchar(50),City nvarchar(50), Gender nvarchar(50) )
+
+
+## Create a Store Procedure
+
+CREATE PROCEDURE usp_InsertPerson 
+    (@person dbo.PersonTableType READONLY)
+	AS
+BEGIN
+	
+	INSERT INTO dbo.Person (Name,City,Gender)
+    SELECT nc.Name, nc.City, nc.Gender FROM @person AS nc;
+
+END
+
+T## est the Store Proc and try to pass table type as parameter
+
+DECLARE @Person dbo.PersonTableType
+INSERT @Person (Name,City,Gender) VALUES ('Jame','NY','Male')
+EXECUTE [dbo].[usp_InsertPerson] @Person
+
+SELECT * FROM Person
+
+## Code in VS C#
+
+class Program
+{
+    
+     static void Main(string[] args)
+     {
+         SqlConnection connection = new SqlConnection();
+         connection.ConnectionString = "Data Source=.;Initial Catalog=JustChillDB;User ID=sa;Password=Password$2";
+
+         DataTable PersonDataTable = new DataTable();
+
+         PersonDataTable.Columns.Add("ID");
+         PersonDataTable.Columns.Add("Name");
+         PersonDataTable.Columns.Add("City");
+         PersonDataTable.Columns.Add("Gender");
+
+         DataRow rw = PersonDataTable.NewRow();
+         rw["ID"] = "0";
+         rw["Name"] = "Dev";
+         rw["City"] = "Meerut";
+         rw["Gender"] = "Male";
+         PersonDataTable.Rows.Add(rw);
+
+
+         DataRow rw1 = PersonDataTable.NewRow();
+         rw1["ID"] = "0";
+         rw1["Name"] = "Mark";
+         rw1["City"] = "Delhi";
+         rw1["Gender"] = "Male";
+         PersonDataTable.Rows.Add(rw1);
+
+
+         // Assumes connection is an open SqlConnection object.
+         using (connection)
+         {
+             connection.Open();
+             // Create a DataTable with the modified rows.
+             DataTable addedPerson =
+               PersonDataTable.GetChanges(DataRowState.Added);
+
+             // Configure the SqlCommand and SqlParameter.
+             SqlCommand insertCommand = new SqlCommand(
+                 "usp_InsertPerson", connection);
+             insertCommand.CommandType = CommandType.StoredProcedure;
+             SqlParameter tvpParam = insertCommand.Parameters.AddWithValue(
+                 "@person", addedPerson);
+             tvpParam.SqlDbType = SqlDbType.Structured;
+
+             // Execute the command.
+             insertCommand.ExecuteNonQuery();
+         }
+     }
+ }
 
 
