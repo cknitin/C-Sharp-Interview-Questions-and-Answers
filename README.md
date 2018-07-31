@@ -130,6 +130,34 @@ To Fix that use the virtual and override.
     }
 
 
+# Class
+
+1. By defualt a class is internal.
+2. A class can not be private in a namespace
+3. Inner class can be private, protected, protected internal and protected private.
+4. A method in a public class can not return object of a private class i.e. inner class
+   
+   Exmaple
+   
+       namespace TestDemo
+       {
+           class Test
+           {
+               private class Test1
+               {
+                   public void Show()
+                   {
+                   }
+               }
+
+               public Test1 TestShow()
+               {
+                   return new Test1();
+               }
+           }
+       }
+
+
 
 # What is the difference between “dispose” and “finalize” variables in C#?
 Dispose - This method uses interface – “IDisposable” interface and it will free up both managed and unmanaged codes like – database connection, files etc.
