@@ -160,7 +160,50 @@ To Fix that use the virtual and override.
 Error
 error CS0050: Inconsistent accessibility: return type 'Test.Test1' is less accessible than method 'Test.TestShow()'     
 
+# Garbage Collection
+When we are developing any application in dot net memory is the most important concern.
+The key purpose of garbage collection is automatic memory management.
+There are two ways to clear the memory 
+ * Manually 
+ * Automatic
 
+Manually memory management lead to the error so we generally don’t use it. So we prefer the AMM i.e. Automatic Memory Management in this technique garbage collector remove the dead objects from memory.
+
+#### Benefits 
+* No need worry about memory management.
+* It allocate on heap every efficiently.
+* Deallocate the memory from unused objects and keep the memory from future use. 
+
+There are two types of object 
+Live objects
+Dead objects
+
+Heap memory is divided in 3 generation 
+Generation 0
+Generation 1
+Generation 2
+
+#### Generation 0
+It is contains the most youngest object. When ever we create a object using new keyword it always get allocated memory in generation 0, if there is not enough space in generation 0 then garbage collector promoted the generation 0 objects to the generation 1.
+
+#### Generation 1
+It contain the long live objects, it act as a buffer between generation 0 and generation 1. It also follows the same rules if there is no enough space in generation 1 the garbage collector will promoted the long live object from generation 1 to generation 1. 
+
+#### Generation 2
+It contain the longest lived object.
+
+#### How to ensure its a dead object
+It check the for application root if application root is any of its object, it also proving the reference of the object the garbage collector does not remove it.
+
+#### Garbage Collector has 3 phases.
+ #### Marking Phase
+      Create the list of live objects
+
+ #### Reallocating Phase
+      It update the reference object 
+
+ #### Compacting Phase
+      Clear the unused objects from the heap memory.
 
 # What is the difference between “dispose” and “finalize” variables in C#?
 Dispose - This method uses interface – “IDisposable” interface and it will free up both managed and unmanaged codes like – database connection, files etc.
