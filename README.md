@@ -367,6 +367,10 @@ Other use of partial
 
 
 # Shallow Copy
+
+Shallow copying is creating a new object and then copying the non static fields of the current object to the new object. If the field is a value type, a bit by bit copy of the field is performed. If the field is a reference type, the reference is copied but the referred object is not, therefore the original object and its clone refer to the same object. A shallow copy of an object is a new object whose instance variables are identical to the old object. In .Net shallow copy is done by the object method MemberwiseClone().
+
+The situations like , if you have an object with values and you want to create a copy of that object in another variable from same type, then you can use shallow copy, all property values which are of value types will be copied, but if you have a property which is of reference type then this instance will not be copied, instead you will have a reference to that instance only.
   
     class Demo
     {
@@ -401,6 +405,11 @@ Other use of partial
     }
 
 # Deep Copy
+
+Deep copy is creating a new object and then copying the non-static fields of the current object to the new object. If a field is a value type, a bit by bit copy of the field is performed. If a field is a reference type, a new copy of the referred object is performed. A deep copy of an object is a new object with entirely new instance variables, it does not share objects with the old. While performing Deep Copy the classes to be cloned must be flagged as [Serializable].
+
+Deep copy is intended to copy all the elements of an object, which include directly referenced elements of value type and the indirectly referenced elements of a reference type that holds a reference to a memory location that contains data rather than containing the data itself.
+
 
     class Demo:ICloneable
     {
