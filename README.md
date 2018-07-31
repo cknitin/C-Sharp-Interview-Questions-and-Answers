@@ -137,7 +137,7 @@ To Fix that use the virtual and override.
 3. Inner class can be private, protected, protected internal and protected private.
 4. A method in a public class can not return object of a private class i.e. inner class
    
-   Exmaple
+   Example
    
        namespace TestDemo
        {
