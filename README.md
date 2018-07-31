@@ -670,6 +670,38 @@ It's a partially implemented class
              }
          }
 
+## Use of abstract, override and new togther 
+
+    abstract class Demo
+    {
+        public abstract void Show();
+    }
+
+    class Demo1 : Demo
+    {
+        public override void Show()
+        {
+            Console.WriteLine("Demo 1");
+        }
+    }
+
+    class Demo2 : Demo1
+    {
+        public sealed override void Show()
+        {
+            Console.WriteLine("Demo 2");
+        }
+    }
+
+    class Demo3 : Demo2
+    {
+        public new void Show()
+        {
+            Console.WriteLine("Demo 2");
+        }
+    }
+
+
 # Interface
 Interface is a contract which is going to implement fully with their derived class.
 Can contain only declaration of Members and not definition.
