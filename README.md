@@ -61,6 +61,9 @@ Compile time polymorphism means we will declare a method with same name and diff
     }
 
 
+#### Note 
+Method Overloading in C#.NET. The process of creating more than one method in a class with same name or creating a method in derived class with same name as a method in base class is called as method overloading. ... But in C# no need to use any keyword while overloading a method either in same class or in derived class.
+
 
 2. RUNTIME POLYMORPHISM (LATE BINDING OR OVERRIDING OR DYNAMIC BINDING)
 
