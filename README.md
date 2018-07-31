@@ -670,7 +670,7 @@ It's a partially implemented class
              }
          }
 
-## Use of abstract, override and new togther 
+## Use of abstract, override and new together 
 
     abstract class Demo
     {
