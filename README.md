@@ -130,7 +130,7 @@ To Fix that use the virtual and override.
     }
 
 
-# Class
+# Secrets of Class in OOPs using C#
 
 1. By defualt a class is internal.
 2. A class can not be private in a namespace
@@ -156,6 +156,9 @@ To Fix that use the virtual and override.
                }
            }
        }
+       
+Error
+error CS0050: Inconsistent accessibility: return type 'Test.Test1' is less accessible than method 'Test.TestShow()'     
 
 
 
