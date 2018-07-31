@@ -30,9 +30,9 @@ Polymorphism is a feature of object-oriented programming. It allows you to invok
 
 Polymorphism has the ability to provide the different implementation of methods that are implemented with the same name.
 
-Type of Polymorphism
+#### Type of Polymorphism
 
-1. COMPILE TIME POLYMORPHISM (EARLY BINDING OR OVERLOADING OR STATIC BINDING)
+#### 1. COMPILE TIME POLYMORPHISM (EARLY BINDING OR OVERLOADING OR STATIC BINDING)
 
 Compile time polymorphism means we will declare a method with same name and different parameter/signature because of this we will perform different tasks with same method name in the same class is called compile time polymorphism.
 
@@ -65,7 +65,7 @@ Compile time polymorphism means we will declare a method with same name and diff
 Method Overloading in C#.NET. The process of creating more than one method in a class with same name or creating a method in derived class with same name as a method in base class is called as method overloading. ... But in C# no need to use any keyword while overloading a method either in same class or in derived class.
 
 
-2. RUNTIME POLYMORPHISM (LATE BINDING OR OVERRIDING OR DYNAMIC BINDING)
+#### 2. RUNTIME POLYMORPHISM (LATE BINDING OR OVERRIDING OR DYNAMIC BINDING)
 
 Runtime polymorphism means we will declare a method with same name and same parameter/signature in the different class is called runtime polymorphism.
 
@@ -99,7 +99,7 @@ In the runtime polymorphism we can override a method in base class by creating a
         }
     }
 
-Output # 
+#### Output # 
 This is a parent method.
 
 To Fix that use the virtual and override.
