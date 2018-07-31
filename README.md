@@ -280,6 +280,18 @@ int myvar2 = (int)myObj;
 # Explain Partial Class in C#?
 Partial classes concept added in .Net Framework 2.0 and it allows us to split the business logic in multiple files with the same class name
 
+Other use of partial
+ - interface, struct, methods (retun type is void, and alway private)
+ - partial can also be use with generics
+ - Abstract class also be partial and all the parital classes will be abstract.
+ 
+# Enum & Interface
+ both can be public only.
+
+# Struct
+ 1. It can nnot be inherit
+
+
 # Shallow Copy
   
     class Demo
