@@ -500,6 +500,8 @@ These local functions can use ref and out parameters.
 4. Its mandatroy to override the abstratc method in derived class
 5. Derived class can not have same name method as abstrat class
 6. Abstract class can have the construtor.
+7. Abstrct method can not be private
+8. Abstract method can not be virtual
 
          abstract class Demo
          {
@@ -572,6 +574,8 @@ An optional parameter has a default value. A method with an optional parameter c
 2. You can not inherit that class with the derive class which has "Private Construtor".  
 
 # Virtual
+
+Virtual method can not be private
 
      namespace TestDemo
      {
