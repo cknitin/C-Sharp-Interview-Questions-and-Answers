@@ -700,6 +700,11 @@ It's a partially implemented class
             Console.WriteLine("Demo 2");
         }
     }
+    
+## Note:
+Finally a sealed modifier breaks the chain of virtual methods and makes them not overridable again. This is not used often, but the option is there. It makes more sense with a chain of 3 classes each deriving from the previous one
+
+A -> B -> C
 
 
 # Interface
