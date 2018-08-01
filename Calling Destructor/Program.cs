@@ -25,8 +25,8 @@ namespace Calling_Destructor
             Demo demo = null;
             demo = new Demo();
             demo = null;
-            GC.Collect();
-            Console.ReadLine();
+            //GC.Collect();
+            //Console.ReadLine();
         }
     }
 }

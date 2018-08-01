@@ -54,7 +54,9 @@ namespace Func_Action_And_LocalFunction
 
             // Func
             // Can take 16 input and 1 output
-            Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int,int > sum = delegate (int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16)
+            Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int,int > sum = 
+                delegate (int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, 
+                int a11, int a12, int a13, int a14, int a15, int a16)
             {
                 return a1 + a2;
             };
@@ -108,7 +110,9 @@ namespace Func_Action_And_LocalFunction
             example3.Invoke();
 
             // Can take 16 input
-            Action<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> Squre = delegate (int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16)
+            Action<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> Squre = 
+                delegate (int a1, int a2, int a3, int a4, int a5, int a6, int a7, 
+                int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16)
             {
                 Console.WriteLine(a1 * a1);
             };

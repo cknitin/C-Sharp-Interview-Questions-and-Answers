@@ -10,12 +10,10 @@ namespace ShallowCopyDemo
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public Demo Copy()
         {
             return (Demo)this.MemberwiseClone();
         }
-
         public void Print(string objectName)
         {
             Console.WriteLine($"Object Name- {objectName} \nFirst Name- {FirstName} \nLast Name- {LastName}");
@@ -26,11 +24,9 @@ namespace ShallowCopyDemo
     {
         static void Main(string[] args)
         {
-
             Demo d1 = new Demo();
             d1.FirstName = "Peter";
             d1.LastName = "Parker";
-
             d1.Print("d1");
 
             Demo d2 = new Demo();
@@ -40,7 +36,6 @@ namespace ShallowCopyDemo
             d1.Print("d1");
 
             Console.ReadLine();
-
         }
     }
 }

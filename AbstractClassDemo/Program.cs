@@ -22,6 +22,7 @@ namespace AbstractClassDemo
 
         // 2. A abstract class can have both abstratc and non- abstract methds
         abstract public void ShowLastName();
+        //abstract private void ShowLastName1();
 
     }
 

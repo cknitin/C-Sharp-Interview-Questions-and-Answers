@@ -15,7 +15,6 @@ namespace DeepCopyDemo
         {
             return this.MemberwiseClone();
         }
-       
         public void Print(string objectName)
         {
             Console.WriteLine($"Object Name- {objectName} \nFirst Name- {FirstName} \nLast Name- {LastName}");
