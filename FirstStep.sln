@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISP", "SOLID\ISP\ISP.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIP", "SOLID\DIP\DIP.csproj", "{7E84E106-C7DD-421E-A9C1-871EB5B8E8FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEnumerableVsIEnumerator", "IEnumerableVsIEnumerator\IEnumerableVsIEnumerator.csproj", "{3B8C1E5F-4040-45A0-90A6-524FBE8888F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,6 +243,10 @@ Global
 		{7E84E106-C7DD-421E-A9C1-871EB5B8E8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E84E106-C7DD-421E-A9C1-871EB5B8E8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E84E106-C7DD-421E-A9C1-871EB5B8E8FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8C1E5F-4040-45A0-90A6-524FBE8888F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8C1E5F-4040-45A0-90A6-524FBE8888F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8C1E5F-4040-45A0-90A6-524FBE8888F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8C1E5F-4040-45A0-90A6-524FBE8888F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

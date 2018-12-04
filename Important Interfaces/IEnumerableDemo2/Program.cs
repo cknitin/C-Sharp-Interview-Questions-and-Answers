@@ -44,6 +44,13 @@ namespace IEnumerableDemo2
                 Console.WriteLine(player.Name);
             }
 
+            var playes= team.GetEnumerator();
+
+            while (playes.MoveNext())
+            {
+                Console.WriteLine(((Player)playes.Current).Name);
+            }
+
             Console.ReadLine();
         }
     }

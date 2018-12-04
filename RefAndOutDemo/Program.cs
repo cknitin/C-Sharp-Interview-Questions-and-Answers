@@ -10,58 +10,78 @@ namespace RefAndOutDemo
     // where as “ref” parameter has to be initialized before it is used.
     class Demo
     {
-        public int refSum(ref int a, ref int b)
-        {
-            return a = a + b; 
+        //public int refSum(ref int a, ref int b)
+        //{
+        //    return a = a + b; 
             
-        }
+        //}
 
-        public int outSum(out int a, out int b)
-        {
-            a = 11;
-            b = 22;
+        //public int outSum(out int a, out int b)
+        //{
+        //    a = 11;
+        //    b = 22;
 
-            return a = a + b;
+        //    return a = a + b;
 
-        }
+        //}
 
-        public int inPrint(in int a, in int b)
-        {
-            // Not allowed with in
+        //public int inPrint(in int a, in int b)
+        //{
+        //    // Not allowed with in
             
-            //return a = a + b;
-            return a + b;
-        }
+        //    //return a = a + b;
+        //    return a + b;
+        //}
     }
     class Program
     {
         static void Main(string[] args)
         {
-            int x = 10;
-            int y = 20;
+            //int x = 10;
+            //int y = 20;
 
-            Demo d = new Demo();
+            //Demo d = new Demo();
 
-            Console.WriteLine($"Before -  {x} {y}");
+            //Console.WriteLine($"Before -  {x} {y}");
 
-            int z = d.refSum(ref x,ref y);
-
-
-            Console.WriteLine($"ref after -  {x} {y} {z}");
+            //int z = d.refSum(ref x,ref y);
 
 
-            int zz = d.outSum(out int a, out int b);
-            Console.WriteLine($"out after -  {a} {b} {zz}");
+            //Console.WriteLine($"ref after -  {x} {y} {z}");
 
 
-            int p = 10;
-            int q = 20;
+            //int zz = d.outSum(out int a, out int b);
+            //Console.WriteLine($"out after -  {a} {b} {zz}");
 
-            int r = d.outSum(out p, out q);
-            Console.WriteLine($"in after -  {p} {q} {r}");
 
+            //int p = 10;
+            //int q = 20;
+
+            //int r = d.outSum(out p, out q);
+            //Console.WriteLine($"in after -  {p} {q} {r}");
+
+            int x = 20;
+
+            Adding10ByRef(ref x);
+            Console.WriteLine(x);
+
+
+            Adding10ByOut(out x);
+            Console.WriteLine(x);
 
             Console.ReadLine();
+        }
+
+
+        public static void Adding10ByRef(ref int x)
+        {
+            x = x + 10;
+        }
+
+        public static void Adding10ByOut(out int x)
+        {
+            x = 10;
+            x = x + 10;
         }
     }
 }
