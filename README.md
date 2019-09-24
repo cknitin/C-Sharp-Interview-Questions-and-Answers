@@ -327,11 +327,11 @@ Yes. We can use delegates for asynchronous method calls.
 # Why to use “Nullable Coalescing Operator” (??) in C#?
 Nullable Coalescing Operator can be used with reference types and nullable value types. So if the first operand of the expression is null then the value of second operand is assigned to the variable. For example,
 
-double? myFirstno = null;
+	double? myFirstno = null;
 
-double mySecno;
+	double mySecno;
 
-mySecno = myFirstno ?? 10.11;
+	mySecno = myFirstno ?? 10.11;
 
 # What is the difference between “as” and “is” operators in C#?
 “as” operator is used for casting object to type or class.
@@ -645,12 +645,13 @@ It's a partially implemented class
 
 1. We can not have abstratc method in non abstratc class
 2. A abstract class can have both abstratc and non- abstract methds
-3. Can not create the instance of abstratc class
+3. Can not create the instance or object of abstratc class
 4. Its mandatroy to override the abstratc method in derived class
 5. Derived class can not have same name method as abstrat class
 6. Abstract class can have the construtor.
 7. Abstrct method can not be private
 8. Abstract method can not be virtual
+9. Abstract class can not be static or seal
 
          abstract class Demo
          {
@@ -704,7 +705,7 @@ It's a partially implemented class
 ## Note:
 Finally a sealed modifier breaks the chain of virtual methods and makes them not overridable again. This is not used often, but the option is there. It makes more sense with a chain of 3 classes each deriving from the previous one
 
-A -> B -> C
+	A -> B -> C
 
 
 # Interface
@@ -724,64 +725,64 @@ A Sealed class is a class which cannot be inherited.
 A sealed class can be public as well as private.
 We can create the object of seal class
 
-public sealed class A
-{
-   public void Fun()
-   {
-   }
-}
-//Compiler Error: 'B': cannot derive from sealed type 'A'
-public class B : A
-{
-   public static void Fun()
-   {
+	public sealed class A
+	{
+	   public void Fun()
+	   {
+	   }
+	}
+	//Compiler Error: 'B': cannot derive from sealed type 'A'
+	public class B : A
+	{
+	   public static void Fun()
+	   {
 
-   }
-}
+	   }
+	}
 
 We can create object of seal class.
 
-A a = new A();
-C.Fun();
+	A a = new A();
+	C.Fun();
 
 #### We can also have the Seal methods
 
- class Demo2
- {
-     public virtual void Greeting1()
-     {
-         Console.WriteLine("Greeting1 from Demo2.");
-     }
+	 class Demo2
+	 {
+	     public virtual void Greeting1()
+	     {
+		 Console.WriteLine("Greeting1 from Demo2.");
+	     }
 
-     public virtual void Greeting2()
-     {
-         Console.WriteLine("Greeting2 from Demo2.");
-     }
- }
+	     public virtual void Greeting2()
+	     {
+		 Console.WriteLine("Greeting2 from Demo2.");
+	     }
+	 }
 
- class Demo3:Demo2
- {
-     public override void Greeting1()
-     {
-         Console.WriteLine("Greeting1 from Demo3.");
-     }
+	 class Demo3:Demo2
+	 {
+	     public override void Greeting1()
+	     {
+		 Console.WriteLine("Greeting1 from Demo3.");
+	     }
 
-     // Sealed also can be used with method to avoid override.
-     sealed public override void Greeting2()
-     {
-         Console.WriteLine("Greeting1 from Demo3.");
-     }
- }
+	     // Sealed also can be used with method to avoid override.
+	     sealed public override void Greeting2()
+	     {
+		 Console.WriteLine("Greeting1 from Demo3.");
+	     }
+	 }
 
- class Demo4 : Demo3
- {
-     // Sealed also can be used with method to avoid override.
-     // In this class you can not override the Greeting2() method due to sealed 
-     public override void Greeting1()
-     {
-         Console.WriteLine("Greeting1 from Demo4.");
-     }
-}
+	 class Demo4 : Demo3
+	 {
+	     // Sealed also can be used with method to avoid override.
+	     // In this class you can not override the Greeting2() method due to sealed 
+	     public override void Greeting1()
+	     {
+		 Console.WriteLine("Greeting1 from Demo4.");
+	     }
+	}
 
 # What is an Internal class in C#?
 An Internal class is a class which cannot be used outside its Assembly. The internal keyword is used to mark a particular class Internal i.e. it restrict its access outside the Assembly.
@@ -1032,65 +1033,65 @@ END
 
 T## est the Store Proc and try to pass table type as parameter
 
-DECLARE @Person dbo.PersonTableType
-INSERT @Person (Name,City,Gender) VALUES ('Jame','NY','Male')
-EXECUTE [dbo].[usp_InsertPerson] @Person
+	DECLARE @Person dbo.PersonTableType
+	INSERT @Person (Name,City,Gender) VALUES ('Jame','NY','Male')
+	EXECUTE [dbo].[usp_InsertPerson] @Person
 
-SELECT * FROM Person
+	SELECT * FROM Person
 
 ## Code in VS C#
 
-class Program
-{
-    
-     static void Main(string[] args)
-     {
-         SqlConnection connection = new SqlConnection();
-         connection.ConnectionString = "Data Source=.;Initial Catalog=JustChillDB;User ID=sa;Password=Password$2";
+	class Program
+	{
 
-         DataTable PersonDataTable = new DataTable();
+	     static void Main(string[] args)
+	     {
+		 SqlConnection connection = new SqlConnection();
+		 connection.ConnectionString = "Data Source=.;Initial Catalog=JustChillDB;User ID=sa;Password=Password$2";
 
-         PersonDataTable.Columns.Add("ID");
-         PersonDataTable.Columns.Add("Name");
-         PersonDataTable.Columns.Add("City");
-         PersonDataTable.Columns.Add("Gender");
+		 DataTable PersonDataTable = new DataTable();
 
-         DataRow rw = PersonDataTable.NewRow();
-         rw["ID"] = "0";
-         rw["Name"] = "Dev";
-         rw["City"] = "Meerut";
-         rw["Gender"] = "Male";
-         PersonDataTable.Rows.Add(rw);
+		 PersonDataTable.Columns.Add("ID");
+		 PersonDataTable.Columns.Add("Name");
+		 PersonDataTable.Columns.Add("City");
+		 PersonDataTable.Columns.Add("Gender");
 
-
-         DataRow rw1 = PersonDataTable.NewRow();
-         rw1["ID"] = "0";
-         rw1["Name"] = "Mark";
-         rw1["City"] = "Delhi";
-         rw1["Gender"] = "Male";
-         PersonDataTable.Rows.Add(rw1);
+		 DataRow rw = PersonDataTable.NewRow();
+		 rw["ID"] = "0";
+		 rw["Name"] = "Dev";
+		 rw["City"] = "Meerut";
+		 rw["Gender"] = "Male";
+		 PersonDataTable.Rows.Add(rw);
 
 
-         // Assumes connection is an open SqlConnection object.
-         using (connection)
-         {
-             connection.Open();
-             // Create a DataTable with the modified rows.
-             DataTable addedPerson =
-               PersonDataTable.GetChanges(DataRowState.Added);
+		 DataRow rw1 = PersonDataTable.NewRow();
+		 rw1["ID"] = "0";
+		 rw1["Name"] = "Mark";
+		 rw1["City"] = "Delhi";
+		 rw1["Gender"] = "Male";
+		 PersonDataTable.Rows.Add(rw1);
 
-             // Configure the SqlCommand and SqlParameter.
-             SqlCommand insertCommand = new SqlCommand(
-                 "usp_InsertPerson", connection);
-             insertCommand.CommandType = CommandType.StoredProcedure;
-             SqlParameter tvpParam = insertCommand.Parameters.AddWithValue(
-                 "@person", addedPerson);
-             tvpParam.SqlDbType = SqlDbType.Structured;
 
-             // Execute the command.
-             insertCommand.ExecuteNonQuery();
-         }
-     }
- }
+		 // Assumes connection is an open SqlConnection object.
+		 using (connection)
+		 {
+		     connection.Open();
+		     // Create a DataTable with the modified rows.
+		     DataTable addedPerson =
+		       PersonDataTable.GetChanges(DataRowState.Added);
+
+		     // Configure the SqlCommand and SqlParameter.
+		     SqlCommand insertCommand = new SqlCommand(
+			 "usp_InsertPerson", connection);
+		     insertCommand.CommandType = CommandType.StoredProcedure;
+		     SqlParameter tvpParam = insertCommand.Parameters.AddWithValue(
+			 "@person", addedPerson);
+		     tvpParam.SqlDbType = SqlDbType.Structured;
+
+		     // Execute the command.
+		     insertCommand.ExecuteNonQuery();
+		 }
+	     }
+	 }
 
 
